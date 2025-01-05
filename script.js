@@ -1,5 +1,6 @@
 const container = document.querySelector('#container');
 const resetButton = document.querySelector('#reset-button')
+const sizeButton = document.querySelector('#grid-size')
 
 
 function createGrid(size){
@@ -15,5 +16,22 @@ function createGrid(size){
 }
 
 
- 
-createGrid(15);
+let gridSize = 15;
+gridReset();
+changeSize();
+createGrid(gridSize);
+
+function gridReset (){
+    resetButton.addEventListener('click', () => {
+        gridSize = 0;
+    createGrid(gridSize);
+    })
+}
+
+function changeSize (){
+    sizeButton.addEventListener('click', () => {
+        let userinp = prompt("Enter the size of the grid");
+        gridSize = Number(userinp);
+        createGrid(gridSize);
+    })
+}
