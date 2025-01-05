@@ -12,14 +12,14 @@ function createGrid(size){
         const div = document.createElement('div');
         div.classList.add('square');
         container.appendChild(div);
+        let r = Math.floor(Math.random()*256);
+        let g = Math.floor(Math.random()*256);
+        let b = Math.floor(Math.random()*256);
+        div.addEventListener('mouseover', () => {
+            div.style.backgroundColor = `rgb(${r},${g},${b})`;
+        })
     }
 }
-
-
-let gridSize = 15;
-gridReset();
-changeSize();
-createGrid(gridSize);
 
 function gridReset (){
     resetButton.addEventListener('click', () => {
@@ -35,3 +35,8 @@ function changeSize (){
         createGrid(gridSize);
     })
 }
+
+let gridSize = 15;
+gridReset();
+changeSize();
+createGrid(gridSize);
